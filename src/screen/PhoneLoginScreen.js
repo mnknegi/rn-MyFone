@@ -6,10 +6,12 @@ import {
   Text,
   TextInput,
   Image,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
+
+import HeaderView from "../components/PhoneLoginComponents/HeaderView";
+import NextButton from "../components/PhoneLoginComponents/NextButton";
 
 const PhoneLoginScreen = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -21,23 +23,10 @@ const PhoneLoginScreen = () => {
       }}
     >
       <SafeAreaView style={styles.container}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <View style={styles.headerContainer}>
-            <View style={styles.headerView}>
-              <Text style={styles.HeaderTextFormatting}>My</Text>
-              <Text style={[styles.HeaderTextFormatting, { color: "black" }]}>
-                Fony
-              </Text>
-            </View>
-            <View style={styles.headerLine}></View>
-          </View>
+        <View style={styles.header}>
+          <HeaderView />
         </View>
+
         <View style={{ flex: 2 }}>
           <View style={{ flex: 1, justifyContent: "center" }}>
             <Text
@@ -90,13 +79,7 @@ const PhoneLoginScreen = () => {
                 onChangeText={(text) => {
                   setPhoneNumber(text);
                 }}
-                style={{
-                  fontFamily: "HelveticaNeue-Bold",
-                  fontSize: 18,
-                  height: 40,
-                  width: "100%",
-                  backgroundColor: "red",
-                }}
+                style={styles.textInputFormatting}
               />
             </View>
           </View>
@@ -123,35 +106,7 @@ const PhoneLoginScreen = () => {
           </View>
         </View>
         <View style={{ flex: 1, alignItems: "center" }}>
-          <TouchableOpacity
-            style={{
-              width: "50%",
-              height: 50,
-            }}
-            onPress={() => {
-              console.log("button  added");
-            }}
-          >
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: "rgba(22,169,255,1.0)",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: 8,
-              }}
-            >
-              <Text
-                style={{
-                  fontFamily: "HelveticaNeue-Medium",
-                  fontSize: 24,
-                  color: "white",
-                }}
-              >
-                Next
-              </Text>
-            </View>
-          </TouchableOpacity>
+          <NextButton />
         </View>
       </SafeAreaView>
     </TouchableWithoutFeedback>
@@ -162,30 +117,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  headerContainer: {
-    justifyContent: "space-evenly",
+  header: {
+    flex: 1,
     alignItems: "center",
-    width: "80%",
-    height: 80,
-  },
-  headerView: {
-    flexDirection: "row",
-  },
-  HeaderTextFormatting: {
-    fontFamily: "HelveticaNeue-Bold",
-    fontSize: 36,
-    color: "rgba(22,169,255,1.0)",
-  },
-  headerLine: {
-    width: "15%",
-    height: 5,
-    backgroundColor: "rgba(22,169,255,1.0)",
+    justifyContent: "center",
   },
   centralView: {
     backgroundColor: "red",
     width: "90%",
     aspectRatio: 1 / 1,
     alignSelf: "center",
+  },
+  textInputFormatting: {
+    fontFamily: "HelveticaNeue-Bold",
+    fontSize: 18,
+    height: 40,
+    width: "100%",
   },
 });
 
