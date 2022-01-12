@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TextInput } from "react-native";
 
 const NumberInputHolder = () => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Phone Number</Text>
