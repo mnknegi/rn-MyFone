@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     marginLeft: 20,
+    marginBottom: 10,
     fontFamily: "HelveticaNeue-Bold",
     fontSize: 22,
   },
