@@ -1,0 +1,6 @@
+module Pods_MyFone {
+  umbrella header "Pods-MyFone-umbrella.h"
+
+  export *
+  module * { export * }
+}
