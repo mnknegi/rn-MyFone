@@ -12,6 +12,7 @@ import {
 
 import HeaderView from "../components/PhoneLoginComponents/HeaderView";
 import NextButton from "../components/PhoneLoginComponents/NextButton";
+import NumberInputHolder from "../components/PhoneLoginComponents/NumberInputHolder";
 
 const PhoneLoginScreen = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -40,72 +41,16 @@ const PhoneLoginScreen = () => {
             </Text>
           </View>
 
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-            }}
-          >
-            <Text
-              style={{
-                marginLeft: 20,
-                fontFamily: "HelveticaNeue-Bold",
-                fontSize: 22,
-              }}
-            >
-              Phone Number
-            </Text>
-            <View
-              style={{
-                flexDirection: "row",
-                marginLeft: 20,
-                alignItems: "center",
-                borderBottomColor: "gray",
-                borderBottomWidth: 1,
-                width: "80%",
-              }}
-            >
-              <Image
-                source={require("../assets/flag.png")}
-                style={{
-                  width: 30,
-                  height: 30,
-                  marginRight: 10,
-                }}
-              />
-              <TextInput
-                placeholder="Enter any Number"
-                keyboardType="numeric"
-                onChangeText={(text) => {
-                  setPhoneNumber(text);
-                }}
-                style={styles.textInputFormatting}
-              />
-            </View>
-          </View>
+          <NumberInputHolder />
 
           <View style={{ flex: 1, marginLeft: 20 }}>
-            <Text
-              style={{
-                fontFamily: "Helvetica Neue",
-                fontSize: 16,
-                color: "gray",
-              }}
-            >
+            <Text style={styles.infoText}>
               **You can enter any mobile number and proceed.
             </Text>
-            <Text
-              style={{
-                fontFamily: "Helvetica",
-                fontSize: 16,
-                color: "gray",
-              }}
-            >
-              *OTP will be added in future.
-            </Text>
+            <Text style={styles.infoText}>*OTP will be added in future.</Text>
           </View>
         </View>
-        <View style={{ flex: 1, alignItems: "center" }}>
+        <View style={styles.buttonHolder}>
           <NextButton />
         </View>
       </SafeAreaView>
@@ -122,17 +67,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  centralView: {
-    backgroundColor: "red",
-    width: "90%",
-    aspectRatio: 1 / 1,
-    alignSelf: "center",
+  infoText: {
+    fontFamily: "Helvetica",
+    fontSize: 16,
+    color: "gray",
   },
-  textInputFormatting: {
-    fontFamily: "HelveticaNeue-Bold",
-    fontSize: 18,
-    height: 40,
-    width: "100%",
+  buttonHolder: {
+    flex: 1,
+    alignItems: "center",
   },
 });
 
