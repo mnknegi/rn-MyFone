@@ -3,16 +3,15 @@ import {
   StyleSheet,
   SafeAreaView,
   View,
-  Text,
-  TextInput,
-  Image,
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
 
 import HeaderView from "../components/PhoneLoginComponents/HeaderView";
+import InfoView from "../components/PhoneLoginComponents/InfoComponent";
 import NextButton from "../components/PhoneLoginComponents/NextButton";
 import NumberInputHolder from "../components/PhoneLoginComponents/NumberInputHolder";
+import TitleTextView from "../components/PhoneLoginComponents/TitleText";
 
 const PhoneLoginScreen = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -28,28 +27,14 @@ const PhoneLoginScreen = () => {
           <HeaderView />
         </View>
 
-        <View style={{ flex: 2 }}>
-          <View style={{ flex: 1, justifyContent: "center" }}>
-            <Text
-              style={{
-                marginLeft: 20,
-                fontFamily: "HelveticaNeue-Bold",
-                fontSize: 30,
-              }}
-            >
-              Your Phone!
-            </Text>
-          </View>
+        <View style={styles.centerView}>
+          <TitleTextView />
 
           <NumberInputHolder />
 
-          <View style={{ flex: 1, marginLeft: 20 }}>
-            <Text style={styles.infoText}>
-              **You can enter any mobile number and proceed.
-            </Text>
-            <Text style={styles.infoText}>*OTP will be added in future.</Text>
-          </View>
+          <InfoView />
         </View>
+
         <View style={styles.buttonHolder}>
           <NextButton />
         </View>
@@ -67,10 +52,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  infoText: {
-    fontFamily: "Helvetica",
-    fontSize: 16,
-    color: "gray",
+  centerView: {
+    flex: 2,
   },
   buttonHolder: {
     flex: 1,
